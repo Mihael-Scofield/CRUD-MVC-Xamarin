@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cadastramento.AddClientPage"
+             Title="Adicionar Cliente">
+    
+    <StackLayout Margin="20">
+        <TableView Intent="Settings"
+                   HasUnevenRows="True">
+            <TableRoot>
+                <TableSection>
+                    <EntryCell x:Name="eName"
+                               Placeholder="Nome"
+                               Text="{Binding Name}" />
+                    <EntryCell x:Name="eAge"
+                               Placeholder="Idade"
+                               Text="{Binding Age}" />
+                    <EntryCell x:Name="ePhone"
+                               Placeholder="Telefone"
+                               Text="{Binding Phone}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+
+        <Grid Margin="20, 35, 20, 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="145" />
+                <ColumnDefinition Width="145" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="0" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="1"
+                   Text="Salvar"
+                   TextColor="White"                               
+                   BackgroundColor="#0f98d4"
+                   BorderColor="Black" 
+                   CornerRadius="7"
+                   BorderWidth="2"
+                   VerticalOptions="Center"
+                   Clicked="OnSaveButtonClicked" />
+            
+           <Button Text="Cancel"
+                   TextColor="White"                               
+                   BackgroundColor="#DB2543"
+                   BorderColor="Black" 
+                   CornerRadius="7"
+                   BorderWidth="2"
+                   VerticalOptions="Center"
+                   Clicked="OnCancelButtonClicked" />
+        </Grid>
+    </StackLayout>
+    
+</ContentPage>

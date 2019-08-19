@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cadastramento.EditClientPage"
+             Title="Editar Cliente">
+
+    <StackLayout Margin="20">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            
+            <Label Text="Cliente Número"
+                   TextColor="Black"
+                   FontSize="Medium" />
+
+            <Label Grid.Column="1"
+                   Text="{Binding Id}"
+                   TextColor="Black" 
+                   FontSize="Medium" />
+        </Grid>
+
+        <TableView Intent="Settings"
+                   HasUnevenRows="True">
+            <TableRoot>
+                <TableSection>
+                    <EntryCell x:Name="eName"
+                               Placeholder="Nome"
+                               Text="{Binding Name}" />
+                    <EntryCell x:Name="eAge"
+                               Placeholder="Idade"
+                               Text="{Binding Age}" />
+                    <EntryCell x:Name="ePhone"
+                               Placeholder="Telefone"
+                               Text="{Binding Phone}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+
+        <Grid Margin="20, 35, 20, 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="145" />
+                <ColumnDefinition Width="145" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="0" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="1"
+                   Text="Editar"
+                   TextColor="White"                               
+                   BackgroundColor="#0f98d4"
+                   BorderColor="Black" 
+                   CornerRadius="7"
+                   BorderWidth="2"
+                   VerticalOptions="Center"
+                   Clicked="OnEditButtonClicked" />
+
+            <Button Text="Deletar"
+                   TextColor="White"                               
+                   BackgroundColor="#DB2543"
+                   BorderColor="Black" 
+                   CornerRadius="7"
+                   BorderWidth="2"
+                   VerticalOptions="Center"
+                   Clicked="OnDeleteButtonClicked" />
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

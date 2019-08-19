@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Cadastramento"
+             x:Class="Cadastramento.MainPage"
+             
+             BackgroundColor="White"
+             Title="Cadastros">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="Id"                      
+                     Order="Secondary"
+                     Clicked="OnIdFilterClicked"/>
+        
+        <ToolbarItem Text="Nome"                      
+                     Order="Secondary"
+                     Clicked="OnNameFilterClicked"/>
+
+        <ToolbarItem Text="Idade"                      
+                     Order="Secondary"
+                     Clicked="OnAgeFilterClicked"/>
+
+        <ToolbarItem IconImageSource="addperson2"
+                     Order="Primary"
+                     Clicked="OnClientAddClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+
+        <SearchBar 
+              WidthRequest="1"
+              TextColor="Black"
+              Placeholder="Procure um cliente"
+              TextChanged="Handle_TextChanged"/>
+        
+        <ListView 
+              x:Name="listView" 
+              HasUnevenRows="True"           
+              ItemSelected="OnListViewClientSelected"
+              SeparatorColor="Black"
+              IsPullToRefreshEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <ViewCell>
+                        
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0"
+                                   Grid.Row="0"
+                                   Text="Id: "
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Column="1"
+                                   Grid.Row="0"
+                                   Text="{Binding Id}"
+                                   TextColor="Black" />
+
+                            <Label Grid.Column="0"
+                                   Grid.Row="1"
+                                   Text="Nome: "
+                                   TextColor="Black" 
+                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   Text="{Binding Name}"
+                                   TextColor="Black" />
+  
+                            <Label Grid.Column="0"
+                                   Grid.Row="2"
+                                   Text="Idade: "
+                                   TextColor="Black"
+                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Column="1"
+                                   Grid.Row="2"
+                                   Text="{Binding Age}"
+                                   TextColor="Black" />
+                        </Grid>
+                        
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+</ContentPage>
